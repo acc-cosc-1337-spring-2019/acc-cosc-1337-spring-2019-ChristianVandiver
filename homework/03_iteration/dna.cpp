@@ -12,18 +12,16 @@ Return quotient.
 */
 double get_gc_content(const string word)
 {
-	int count = 32.5;
-	int i = 0;
-	for (auto c: word)
+	double count = 0;
+	double total;
+	for (int i = 0;i < word.size();++i)
 	{
 		if (word[i] == 'G' || word[i] == 'g' || word[i] == 'C' || word[i] == 'c')
 		{
 			count += 1;
-			++i;
 		}
 	}
-	double total = count/word.length();
-	return total;
+	return total = count / word.size();
 }
 
 
@@ -31,6 +29,15 @@ double get_gc_content(const string word)
 Write code for function get_reverse_string that
 accepts a string parameter and returns a string reversed.
 */
+string get_reverse_string(string word)
+{
+	string reverse;
+	for (int i = word.size() - 1;i>=0;--i )
+	{
+		reverse+=word[i];		
+	}
+	return reverse;
+}
 
 
 /*
@@ -43,3 +50,30 @@ b. iterate local string variable and
 c. return string
 
 */
+string get_dna_complement(string word)
+{
+	string complement = get_reverse_string(word);
+	for (int i = 0;i<complement.size();++i)
+	{
+		if (complement[i] == 'A')
+		{
+			complement[i] = 'T';
+		}
+		else
+			if(complement[i] == 'T')
+			{
+				complement[i] = 'A';
+			}
+			else
+				if (complement[i] == 'C')
+				{
+					complement[i] = 'G';
+				}
+				else
+					if (complement[i] == 'G')
+					{
+						complement[i] = 'C';
+					}
+	}
+	return complement;
+}
