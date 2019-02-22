@@ -17,4 +17,9 @@ void loop_vector_w_index();
 
 void loop_vector_w_auto();
 
+void loop_vector_w_index(std::vector<int> values);
+
 void loop_vector(std::vector<int>& values);
+
+void loop_const_vector(const std::vector<int>& values);
+

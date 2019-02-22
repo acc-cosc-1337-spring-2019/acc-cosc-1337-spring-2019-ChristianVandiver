@@ -1,6 +1,6 @@
 #include<iostream>
 #include "sample_do_while.h"
-#include"switch.h"
+#include "switch.h"
 
 using std::cout;
 using std::cin;
@@ -12,13 +12,11 @@ void prompt_user()
 	int choice;
 	do 
 	{
-		cout << "Enter 1 to continue:";
+		cout << "Enter 1 to continue: ";
 		cin >> choice;
+	
 	} while (choice == 1);
 }
-
-
-
 
 
 //Write code for function run_menu that prompts  user for a 
@@ -32,14 +30,15 @@ void run_menu()
 {
 	int option;
 	char choice;
-	do
+
+	do 
 	{
-		cout << "Enter number from 1 through 4:";
+		cout << "Enter number from 1 to 4";
 		cin >> option;
 		cout << menu_option(option);
 
-		cout << "Continue? y or n:";
-		cin >> choice;;
+		cout << "Continue? y or n";
+		cin >> choice;
 
 	} while (choice == 'y' || choice == 'Y');
 }
