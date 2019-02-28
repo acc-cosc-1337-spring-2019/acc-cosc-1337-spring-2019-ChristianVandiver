@@ -1,8 +1,10 @@
 #include "tic_tac_toe.h"
+#include<iostream>
 
 void TicTacToe::start_game(std::string first_player)
 {
 	next_player = first_player;
+	clear_board();
 }
 
 std::string TicTacToe::get_player() const
@@ -13,6 +15,18 @@ std::string TicTacToe::get_player() const
 bool TicTacToe::game_over()
 {
 	if (check_column_win())
+	{
+		return true;
+	}
+	if (check_row_win())
+	{
+		return true;
+	}
+	if (check_diagonal_win())
+	{
+		return true;
+	}
+	if (check_board_full())
 	{
 		return true;
 	}
@@ -57,4 +71,78 @@ bool TicTacToe::check_column_win()
 		}
 	}
 	return false;
+}
+
+bool TicTacToe::check_row_win()
+{
+	if (pegs[0] == pegs[1] && pegs[1] == pegs[2] && pegs[2] != " ")
+	{
+		return true;
+	}
+	else
+		if (pegs[3] == pegs[4] && pegs[4] == pegs[5] && pegs[5] != " ")
+		{
+			return true;
+		}
+		else
+			if (pegs[6] == pegs[7] && pegs[7] == pegs[8] && pegs[8] != " ")
+			{
+				return true;
+			}
+	return false;
+}
+
+/*
+Win by diagonal if and return true if
+0,4, and 8 are equal
+2,4, and 6 are equal
+else
+false
+*/
+
+bool TicTacToe::check_diagonal_win()
+{
+	if (pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[8] != " ")
+	{
+		return true;
+	}
+	else
+		if (pegs[2] == pegs[4] && pegs[4] == pegs[6] && pegs[6] != " ")
+		{
+			return true;
+		}
+	return false;		
+}
+
+bool TicTacToe::check_board_full()
+{
+	if (pegs[0] != " " && pegs[1] != " " && pegs[2] != " " && pegs[3] != " " && pegs[4] != " " && pegs[5] != " " && pegs[6] != " " && pegs[7] != " " && pegs[8] != " "
+		&& check_column_win() != true && check_row_win() != true && check_diagonal_win() != true)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+void TicTacToe::display_board() const
+{
+	for (std::size_t i = 0; i <= pegs.size() - 1; ++i)
+	{
+		std::cout << " " << pegs[i] << "|";
+		if (i == 2 || i == 5)
+		{
+			std::cout << "\n";
+		}
+	}
+	std::cout << "\n";
+	
+}
+
+void TicTacToe::clear_board()
+{
+	for (std::size_t i = 0; i <= pegs.size() - 1; ++i)
+	{
+		pegs[i] = " ";
+	}
 }
