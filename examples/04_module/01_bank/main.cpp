@@ -1,13 +1,17 @@
 #include "bank_account.h"
 #include"atm.h"
+#include"customer.h"
 #include<vector>
 #include<iostream>
 
 int main() 
 {
-
-	ATM atm;
+	BankAccount account(123456, 500);
+	Customer customer(account);
+	ATM atm(account);
 	atm.display_balance();
+	
+
 
 	/*
 	std::vector<BankAccount> accounts;

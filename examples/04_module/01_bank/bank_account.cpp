@@ -1,10 +1,5 @@
 #include "bank_account.h"
 
-BankAccount::BankAccount() : balance(1000), account_number(12345)
-{
-
-}
-
 BankAccount::BankAccount(int act, double bal) :
 	account_number(act), balance(bal)
 {

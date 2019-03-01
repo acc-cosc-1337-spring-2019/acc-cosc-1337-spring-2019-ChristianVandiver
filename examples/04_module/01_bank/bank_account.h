@@ -4,10 +4,10 @@
 class BankAccount 
 {
 public:
-	BankAccount();
 	BankAccount(int act, double bal);//constructor
 	double get_balance() const;
 	void deposit(double amount);
+	void deposit(int pin, double amount);
 	void withdraw(double amount);
 
 
