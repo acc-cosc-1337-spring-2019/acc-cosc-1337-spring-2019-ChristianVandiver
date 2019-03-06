@@ -11,7 +11,15 @@ int main()
 	ATM atm(account);
 	atm.display_balance();
 	
+	display(account);
 
+	BankAccount b(1, 900);
+	BankAccount c = account + b;
+	std::cout << c << "\n";
+	//std::cin << c;
+	std::cout << "\n";
+
+	display(c);
 
 	/*
 	std::vector<BankAccount> accounts;
@@ -25,6 +33,14 @@ int main()
 	{
 		std::cout << act.get_balance() << "\n";
 	}*/
+
+	/*
+	for(auto tic_tac_toe: list)
+	{
+		cout<<tic_tac_toe<<"\n";
+	}
+
+	*/
 
 	return 0;
 }
