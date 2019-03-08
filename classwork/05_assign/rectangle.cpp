@@ -8,6 +8,7 @@ that calculates area of the rectangle.  The class has 3 int private variables ar
 Rectangle::Rectangle(int width, int height) :
 	width(width), height(height)
 {
+	calculate_area();
 }
 
 double Rectangle::get_area() const

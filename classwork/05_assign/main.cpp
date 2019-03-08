@@ -23,11 +23,14 @@ int main()
 	rectangles.push_back(rec1);
 	rectangles.push_back(rec2);
 
+	int total = 0;
+
 	for (auto i : rectangles)
 	{
 		std::cout << i.get_area() << "\n";
+		total += i.get_area();
 	}
 
-	//std::cout << return_val();
+	std::cout << "Total: " << total;
 	return 0;
 }
