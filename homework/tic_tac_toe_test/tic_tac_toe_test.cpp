@@ -222,7 +222,7 @@ vector view: 2, 4, and 6
 	board.mark_board(7);//X 
 	//X wins 
 	REQUIRE(board.game_over() == true);
-	//REQUIRE(board.get_winner() == "X");
+	REQUIRE(board.get_winner() == "X");
 }
 
 TEST_CASE("Test tie", "[Nobody wins]")
@@ -255,6 +255,6 @@ TEST_CASE("Test tie", "[Nobody wins]")
 	board.mark_board(9);//X 
 	//X wins 
 	REQUIRE(board.game_over() == true);
-	//REQUIRE(board.get_winner() == "C");
+	REQUIRE(board.get_winner() == "C");
 	
 }

@@ -14,20 +14,10 @@ std::string TicTacToe::get_player() const
 
 bool TicTacToe::game_over()
 {
-	if (check_column_win())
+	if (check_column_win()|| check_row_win() ||check_diagonal_win() ||
+	    check_board_full()) 
 	{
-		return true;
-	}
-	if (check_row_win())
-	{
-		return true;
-	}
-	if (check_diagonal_win())
-	{
-		return true;
-	}
-	if (check_board_full())
-	{
+		set_winner(next_player);
 		return true;
 	}
 
@@ -120,13 +110,15 @@ bool TicTacToe::check_diagonal_win()
 
 bool TicTacToe::check_board_full()
 {
-	if (pegs[0] != " " && pegs[1] != " " && pegs[2] != " " && pegs[3] != " " && pegs[4] != " " && pegs[5] != " " && pegs[6] != " " && pegs[7] != " " && pegs[8] != " "
-		&& check_column_win() != true && check_row_win() != true && check_diagonal_win() != true)
+	for (auto p : pegs) 
 	{
-		return true;
+		if (p == " ") 
+		{
+			return false;
+		}
 	}
 
-	return false;
+	return true;
 }
 
 void TicTacToe::display_board() const
