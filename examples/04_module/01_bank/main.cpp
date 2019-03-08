@@ -8,7 +8,10 @@ int main()
 {
 	BankAccount account(123456, 500);
 	Customer customer(account);
-	ATM atm(account);
+	ATM atm(customer);
+	
+	atm.display_balance();
+	atm.deposit(50);
 	atm.display_balance();
 	
 	display(account);

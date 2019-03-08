@@ -1,14 +1,17 @@
 #include"tic_tac_toe.h"
+#include"tic_tac_toe_manager.h"
 #include<iostream>
 #include<vector>
 #include<string>
 
 int main() 
 {
-	TicTacToe tictactoe;
+	TicTacToeManager manager;
 	std::string decider = "y";
 	do
 	{
+		TicTacToe tictactoe;
+
 		std::string set_first_player;
 		std::cout << "Choose if X or O goes first:";
 		std::cin >> set_first_player;
@@ -26,12 +29,15 @@ int main()
 				tictactoe.mark_board(position);
 				tictactoe.game_over();
 			} while (tictactoe.game_over() == false);
+
+			manager.save_game(tictactoe);
 		}
 		tictactoe.display_board();
 		std::cout << "Winner" << "\n";
 		std::cout << "Do you want to play again? y or n:";
 		std::cin >> decider;
 	} while (decider == "y" || decider == "Y");
+	manager.display_history();
 
 	return 0;
 }

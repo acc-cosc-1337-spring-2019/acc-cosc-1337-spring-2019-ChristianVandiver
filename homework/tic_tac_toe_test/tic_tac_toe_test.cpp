@@ -222,9 +222,10 @@ vector view: 2, 4, and 6
 	board.mark_board(7);//X 
 	//X wins 
 	REQUIRE(board.game_over() == true);
+	//REQUIRE(board.get_winner() == "X");
 }
 
-TEST_CASE("Test board_full function", "[Nobody wins]")
+TEST_CASE("Test tie", "[Nobody wins]")
 { /* Tic Tac Toe Board
 		123
 		456
@@ -254,4 +255,6 @@ TEST_CASE("Test board_full function", "[Nobody wins]")
 	board.mark_board(9);//X 
 	//X wins 
 	REQUIRE(board.game_over() == true);
+	//REQUIRE(board.get_winner() == "C");
+	
 }

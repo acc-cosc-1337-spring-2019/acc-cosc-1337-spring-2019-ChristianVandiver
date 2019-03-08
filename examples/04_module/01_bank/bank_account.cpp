@@ -8,6 +8,8 @@ BankAccount::BankAccount(int act, double bal) :
 
 double BankAccount::get_balance() const
 {
+
+	//transactions.push_back(Transaction("Inquiry", 0, balance));
 	return balance;
 }
 
