@@ -1,12 +1,35 @@
 #include "bank_account.h"
 #include"atm.h"
 #include"customer.h"
+#include"savings_account.h"
+#include"checking_account.h"
 #include<vector>
 #include<iostream>
 
+using std::vector;
+
 int main() 
 {
-	BankAccount account(123456, 500);
+	SavingsAccount s(12345, 1000);
+	std::cout << s.get_balance();
+
+	BankAccount& b = s;
+	std::cout << "\n" << b.get_balance() << "\n";
+
+	CheckingAccount c(54321, 500);
+	std::cout << c.get_balance() << "\n";
+
+	BankAccount& d = c;
+	std::cout << "\n" << d.get_balance();
+
+	vector < std::reference_wrapper<BankAccount>> accounts{ s,c };
+
+	for (auto & account : accounts)
+	{ //account must be unwraped with .get() to get the instance of Acount
+		std::cout << account.get().get_balance() << std::endl;
+	}
+
+	/*BankAccount account(123456, 500);
 	Customer customer(account);
 	ATM atm(customer);
 	
@@ -22,7 +45,7 @@ int main()
 	//std::cin << c;
 	std::cout << "\n";
 
-	display(c);
+	display(c);/*
 
 	/*
 	std::vector<BankAccount> accounts;

@@ -1,6 +1,11 @@
+#ifndef SHAPE_H
+#define SHAPE_H
 //h
 class Shape 
 {
 public:
-	void draw();
+	//virtual void draw();this is a virtual function
+	virtual void draw();//pure virtual function
 };
+
+#endif //SHAPE_H
