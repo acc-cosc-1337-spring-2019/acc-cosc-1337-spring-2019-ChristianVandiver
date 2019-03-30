@@ -1,5 +1,5 @@
 #include "tic_tac_toe_manager.h"
-#include"tic_tac_toe.h"
+
 //Write class function implementations here
 
 void TicTacToeManager::save_game(const TicTacToe game)
@@ -8,27 +8,32 @@ void TicTacToeManager::save_game(const TicTacToe game)
 	games.push_back(game);
 }
 
-void TicTacToeManager::display_history() const
-{
-	for (auto game : games)
-	{
-		game.display_board();
-	}
-}
-
 void TicTacToeManager::update_winner_count(std::string winner)
 {
-	if (winner == "C")
+	if (winner == "C") 
 	{
 		ties++;
 	}
-	else if (winner == "X")
+	else if (winner == "X") 
 	{
 		x_win++;
 	}
-
-	else if (winner == "O")
+	else if (winner == "O") 
 	{
 		o_win++;
 	}
+}
+
+std::ostream & operator<<(std::ostream & out, const TicTacToeManager & t)
+{
+	for (auto game : t.games)
+	{
+		out << game;
+	}
+
+	out << "X wins: " << t.x_win << "\n";
+	out << "O wins: " << t.o_win << "\n";
+	out << "Ties: " << t.ties << "\n";
+
+	return out;
 }
