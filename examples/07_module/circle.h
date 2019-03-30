@@ -8,6 +8,6 @@ class Circle : public Shape
 {
 public:
 	void draw();
-}
+};
 
 #endif //!CIRCLE_H

@@ -44,6 +44,6 @@ int main()
 	{
 		shape->draw();
 	}
-
+	
 	return 0;
 }
