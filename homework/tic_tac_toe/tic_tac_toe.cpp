@@ -85,6 +85,11 @@ void TicTacToe::set_winner()
 	}
 }
 
+const std::vector<std::string>& TicTacToe::get_pegs()
+{
+	return pegs;
+}
+
 std::ostream & operator<<(std::ostream & out, const TicTacToe & t)
 {
 	for (std::size_t i = 0; i < t.pegs.size(); i += sqrt(t.pegs.size()))
