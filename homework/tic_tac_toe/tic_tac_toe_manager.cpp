@@ -4,15 +4,10 @@
 
 //Write class function implementations here
 
-void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& game)
-{
-	update_winner_count(game->get_winner());
-	games.push_back(std::move(game));
-}
 
-std::unique_ptr<TicTacToe> TicTacToeManager::get_game(int game_type)
+std::unique_ptr<TicTacToe>TicTacToeManager::get_game(GameType game_type)
 {
-	if (game_type == 3)
+	if (game_type == GameType::three)
 	{
 		return std::make_unique<TicTacToe3>();
 	}
@@ -20,9 +15,12 @@ std::unique_ptr<TicTacToe> TicTacToeManager::get_game(int game_type)
 	{
 		return std::make_unique<TicTacToe4>();
 	}
-
 }
-
+void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& game)
+{
+	update_winner_count(game->get_winner());
+	games.push_back(std::move(game));
+}
 void TicTacToeManager::update_winner_count(std::string winner)
 {
 	if (winner == "C") 

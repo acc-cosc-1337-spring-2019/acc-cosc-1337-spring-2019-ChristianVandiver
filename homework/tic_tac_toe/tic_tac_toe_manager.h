@@ -8,12 +8,12 @@
 class TicTacToeManager 
 {
 public:
-	void save_game(std::unique_ptr<TicTacToe>& game);
-	std::unique_ptr<TicTacToe> get_game(int game_type);
+	void save_game(std::unique_ptr<TicTacToe>&game);
+	std::unique_ptr<TicTacToe>get_game(GameType game_type);
 	friend std::ostream & operator << (std::ostream & out,
 		const TicTacToeManager & t);
 private:
-	std::vector<std::unique_ptr<TicTacToe>> games;
+	std::vector<std::unique_ptr<TicTacToe>>games;
 	void update_winner_count(std::string winner);
 
 	int x_win{ 0 }, o_win{ 0 }, ties{ 0 };

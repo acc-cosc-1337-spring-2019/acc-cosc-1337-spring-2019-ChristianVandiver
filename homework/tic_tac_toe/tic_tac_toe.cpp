@@ -1,5 +1,6 @@
 #include "tic_tac_toe.h"
 #include<iostream>
+#include<math.h>
 
 void TicTacToe::start_game(std::string first_player)
 {
@@ -71,6 +72,7 @@ std::string TicTacToe::get_winner() const
 	return winner;
 }
 
+
 void TicTacToe::set_winner() 
 {
 	if (check_board_full()) 
@@ -85,9 +87,16 @@ void TicTacToe::set_winner()
 
 std::ostream & operator<<(std::ostream & out, const TicTacToe & t)
 {
-	for (std::size_t i = 0; i < 9; i += 3)
+	for (std::size_t i = 0; i < t.pegs.size(); i += sqrt(t.pegs.size()))
 	{
-		std::cout << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2] << "\n";
+		std::cout << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2];
+		
+		if (t.pegs.size() == 16) 
+		{
+			std::cout <<"|" << t.pegs[i + 3];
+		}
+		
+		std::cout<< "\n";
 	}
 
 	return out;
