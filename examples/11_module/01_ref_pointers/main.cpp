@@ -3,6 +3,12 @@
 
 int main() 
 {
+	int* hold_return_value;
+	int num = 5;
+
+	hold_return_value = return_pointer(num);
+
+	/*
 	int number = 10;
 	//a pointer can store the address of a variable
 	int* numberPtr = &number;
@@ -18,6 +24,7 @@ int main()
 
 	std::cout << "\nAddress of numberPtr: " << &numberPtr << " value stored at address pointed to is: "
 		<< numberPtr << "\n Dereference numberPtr: " << *numberPtr;
+	*/
 
 	return 0;
 }
